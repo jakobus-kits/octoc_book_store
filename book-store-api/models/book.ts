@@ -1,3 +1,9 @@
+export interface IDiscountedGenrePriceResult {
+  genre: string;
+  discount_percentage: number;
+  total_discounted_price: number;
+}
+
 export interface IBook {
   id: number;
   title: string;

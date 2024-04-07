@@ -4,9 +4,12 @@ import { IBook } from '../models/book';
 
 // Simulated database storage
 let books: IBook[] = [
-  { id: 1, title: 'Book 1', author: 'Author 1', genre: 'Genre 1', price: 10 },
-  { id: 2, title: 'Book 2', author: 'Author 2', genre: 'Genre 2', price: 15 },
-  { id: 3, title: 'Book 3', author: 'Author 3', genre: 'Genre 3', price: 20 }
+  { id: 1, title: 'To Kill a Mockingbird', author: 'Harper Lee', genre: 'Fiction', price: 50 },
+  { id: 2, title: '1984', author: 'George Orwell', genre: 'Fiction', price: 75 },
+  { id: 7, title: 'Harry Potter and the Philosopher\'s Stone', author: 'J.K. Rowling', genre: 'Fantasy', price: 65 },
+  { id: 8, title: 'The Hobbit', author: 'J.R.R. Tolkien', genre: 'Fantasy', price: 70 },
+  { id: 9, title: 'The Da Vinci Code', author: 'Dan Brown', genre: 'Mystery', price: 40 },
+  { id: 10, title: 'The Girl with the Dragon Tattoo', author: 'Stieg Larsson', genre: 'Mystery', price: 55 }
 ];
 
 export default class BookRepository {

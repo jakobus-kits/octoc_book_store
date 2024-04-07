@@ -28,6 +28,23 @@ export default class BookController {
     }
   }
 
+  static async getCalculatedBookGenreResult(req: Request, res: Response): Promise<void> {
+    const genre = req.query.genre as string;
+    const discount = Number(req.query.discount);
+
+    try {
+      const discountedResult = await BookService.getCalculatedBookGenreResult(genre, discount);
+      if (!discountedResult) {
+        res.status(404).json({ message: 'No books found for the specified genre' });
+        return;
+      }
+      res.status(200).json(discountedResult);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal Server Error' });
+    }
+  }
+
   static async createBook(req: Request, res: Response): Promise<void> {
     const newBookData = req.body as Partial<IBook>;
 
