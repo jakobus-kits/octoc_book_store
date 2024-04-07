@@ -26,5 +26,10 @@ You can interact with the API using tools like Postman or cURL. Here are the ava
 - DELETE http://localhost:3000/books/{id}: Delete a book by its ID.
 - GET http://localhost:3000/books/discounted-price?genre={genre_name}&discount={discount_percentage}: Calculate the total discounted price for all books in a specific genre based on a given discount percentage.
 
+**Unit Tests**
+The Bookstore API is thoroughly tested using Jest, a popular JavaScript testing framework. Unit tests are written to ensure the correctness and reliability of each endpoint and service in the API. You can run the unit tests locally to verify the functionality of the API.
+
+Run the unit tests using: **npx jest**
+
 **Conclusion**
 This README provides an overview of the Bookstore API, including its objectives, tasks, example usage, and instructions for getting started. The implemented API aims to fulfill the requirements specified and provide a robust solution for managing bookstore operations.
