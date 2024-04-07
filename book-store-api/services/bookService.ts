@@ -13,21 +13,19 @@ export default class BookService {
     return await BookRepository.getBookById(id);
   }
 
+  static async getBooksByGenre(genre: string): Promise<IBook[]> {
+    return await BookRepository.getBooksByGenre(genre);
+  }
+
   static async getCalculatedBookGenreResult(genre: string, discountPercentage: number): Promise<IDiscountedGenrePriceResult | null> {
     try {
-      const books = await BookRepository.getAllBooks();
-      if(books == null || books.length < 1)
-        return null;
-
-      const filteredBooks = books?.filter(book => book.genre.toLowerCase() === genre.toLowerCase());
+      const filteredBooks = await BookRepository.getBooksByGenre(genre);
       if (filteredBooks.length < 1) {
         return null;
       }
 
-      // Calculate sum of book price
+      // Calculations
       const totalOriginalPrice = filteredBooks?.reduce((total, book) => total + book.price, 0);
-      
-      // Calculate discount amount
       const discountedPrice = (totalOriginalPrice ?? 0) * (1 - discountPercentage / 100);
 
       return {

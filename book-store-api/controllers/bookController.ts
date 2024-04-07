@@ -4,8 +4,15 @@ import BookService from '../services/bookService';
 
 export default class BookController {
   static async getAllBooks(req: Request, res: Response): Promise<void> {
+    const genre = req.query.genre as string;
+
     try {
-      const books = await BookService.getAllBooks();
+      let books = [];
+      if(genre != null) {
+        books = await BookService.getBooksByGenre(genre);
+      } else {
+        books = await BookService.getAllBooks();
+      }
       res.status(200).json(books);
     } catch (error) {
       console.error(error);

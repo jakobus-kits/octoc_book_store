@@ -17,6 +17,11 @@ export default class BookRepository {
     return books;
   }
 
+  static async getBooksByGenre(genre: string): Promise<IBook[]> {
+    const filteredBooks = books.filter((b) => b.genre.toLowerCase() === genre.toLowerCase());
+    return filteredBooks;
+  }
+
   static async getBookById(id: number): Promise<IBook | null> {
     const book = books.find((b) => b.id === id);
     return book ? book : null;
